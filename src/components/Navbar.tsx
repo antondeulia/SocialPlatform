@@ -37,7 +37,7 @@ const Navbar = () => {
               height={16}
               className="w-4 h-4"
             />
-            <span>Homepage</span>
+            <span>Friends</span>
           </Link>
           <Link href="/" className="flex gap-2 items-center">
             <Image
@@ -47,7 +47,7 @@ const Navbar = () => {
               height={16}
               className="w-4 h-4"
             />
-            <span>Homepage</span>
+            <span>Stories</span>
           </Link>
         </ul>
 
