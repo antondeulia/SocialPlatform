@@ -48,8 +48,6 @@ export async function POST(req: Request) {
 
   const { data } = JSON.parse(body);
 
-  console.log(data);
-
   if (eventType === "user.created") {
     try {
       await prisma.user.create({
@@ -59,7 +57,7 @@ export async function POST(req: Request) {
           avatar: data.image_url,
           firstName: data.first_name,
           lastName: data.last_name,
-          cover: "/noCover.png",
+          cover: "/noAvatar.png",
         },
       });
 
@@ -81,7 +79,7 @@ export async function POST(req: Request) {
           avatar: data.imageUrl,
           firstName: data.firstName,
           lastName: data.lastName,
-          cover: "/noCover.png",
+          cover: "/noAvatar.png",
         },
       });
 
@@ -90,6 +88,18 @@ export async function POST(req: Request) {
       console.log(error);
 
       return new Response("Failed to update the user!", { status: 500 });
+    }
+  }
+
+  if (eventType === "user.deleted") {
+    try {
+      await prisma.user.delete({
+        where: { id: data.id },
+      });
+    } catch (error) {
+      console.log(error);
+
+      return new Response("Failed to delete the user!", { status: 500 });
     }
   }
 

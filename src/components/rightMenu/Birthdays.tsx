@@ -5,7 +5,7 @@ const Birthdays = () => {
   return (
     <div className="p-4 shadow-md bg-white text-sm">
       <div className="flex justify-between items-center font-medium">
-        <span className="text-gray-500">Birthdays</span>
+        <span className="text-gray-500 mb-4">Birthdays</span>
       </div>
 
       {/* USER  */}
